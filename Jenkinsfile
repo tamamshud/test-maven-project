@@ -7,9 +7,10 @@ node ("master") {
     def selectedRepository = 'https://github.com/tamamshud/test-maven-project'
     def currentMavenCommand = 'cd project && mvn clean install'
     def currentDBCommand = 'cd database && mvn clean test -Dscope=FlywayMigration'
-    def pCommand = 'cd test && mvn clean test -Dscope=performance'
+    def pCommand = 'mvn clean test -Dscope=performance'
     def rCommand = 'mvn clean test -Dscope=regression'
     def iCommand = 'mvn clean test -Dscope=integration'
+    def pathToTest = 'cd /var/lib/jenkins/workspace/maven-project/test'
 
             stageGitCheckout {
                 remoteDir = directoryForCheckout
@@ -30,6 +31,7 @@ node ("master") {
                 performanceCommand =  pCommand
 		regressionCommand =  rCommand
 		integrationCommand =  iCommand
+                testDirectory = pathToTest
             }
 
 }
