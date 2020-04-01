@@ -6,6 +6,9 @@ node ("master") {
     def directoryForCheckout = './project'
     def selectedBranchName = '*/master'
     def selectedRepository = 'https://github.com/tamamshud/test-maven-project'
+    def selectedMaven = 'maven'
+    def currentMavenCommand = 'mvn clean install'
+    def selectedJdk = 'Oracle JDK 8'
 
             stageGitCheckout {
                 remoteDir = directoryForCheckout
@@ -13,6 +16,11 @@ node ("master") {
                 credentialsID = gitCredential
                 gitRepository = selectedRepository
             }
+
+	    stageExecuteMaven {
+		jdkVersion   = selectedJdk
+                mavenVersion = selectedMaven
+                mavenCommand = currentMavenCommand
 }
  
 
