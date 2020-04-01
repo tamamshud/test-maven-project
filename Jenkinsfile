@@ -1,13 +1,20 @@
 @Library('jenkins_pipelines@master') _
- 
+
+    def gitCredential = 'GitHubAccess'
+    def directoryForCheckout = './project'
+    def selectedBranchName = '*/master'
+    def selectedRepository = 'https://github.com/tamamshud/test-maven-project'
+
 pipeline {
     agent any
     stages {
         stage('Git Checkout') {
             steps {
             gitCheckout(
-                branch: "master",
-                url: "https://github.com/tamamshud/test-maven-project"
+            	remoteDir = direcotyForCheckout
+                branchName =  selectedBranchName
+                credentialsID = gitCredential
+                gitRepository = selectedRepository
             )
             }
         }
