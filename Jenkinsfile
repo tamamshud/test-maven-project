@@ -8,11 +8,13 @@
 pipeline {
     agent any
     stages{
+      steps {
             stageGitCheckout {
                 remoteDir = directoryForCheckout
                 branchName =  selectedBranchName
                 credentialsID = gitCredential
                 gitRepository = selectedRepository
             }
-    }
+      }
+ }
 }
