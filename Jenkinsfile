@@ -3,7 +3,6 @@
 node ("master") {
 
     def gitCredential = 'GitHub_User'
-    def directoryForCheckout = './project'
     def selectedBranchName = '*/master'
     def selectedRepository = 'https://github.com/tamamshud/test-maven-project'
     def currentMavenCommand = 'cd project && mvn clean install'
