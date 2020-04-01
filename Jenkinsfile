@@ -11,9 +11,14 @@ pipeline {
             )
             }
         }
-         stage ('Execute Maven') {
+        stage ('Execute Maven') {
             steps {
                 sh "cd project && mvn clean install"
+            }
+        }
+        stage ('Database creation') {
+            steps {
+                sh "cd database && mvn clean test -Dscope=FlywayMigration"
             }
         }
     }
