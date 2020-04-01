@@ -1,6 +1,6 @@
 @Library('jenkins_pipelines@master') _
 
-    def gitCredential = 'GitHubAccess'
+    def gitCredential = 'GitHub_User'
     def directoryForCheckout = './project'
     def selectedBranchName = '*/master'
     def selectedRepository = 'https://github.com/tamamshud/test-maven-project'
