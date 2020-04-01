@@ -25,17 +25,17 @@ pipeline {
             parallel {
                 stage ('Performance test') {
                     steps {
-                       sh 'mvn clean test -Dscope=performance'
+                       sh 'cd test && mvn clean test -Dscope=performance'
                     }
                 }
                 stage ('Regression test') {
                     steps {
-                       sh 'mvn clean test -Dscope=regression'
+                       sh 'cd test && mvn clean test -Dscope=regression'
                     }
                 }                
                 stage ('Integration test') {
                     steps {
-                       sh 'mvn clean test -Dscope=integration'
+                       sh 'cd test && mvn clean test -Dscope=integration'
                     }
                 }                
             }
