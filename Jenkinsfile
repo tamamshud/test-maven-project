@@ -21,5 +21,24 @@ pipeline {
                 sh "cd database && mvn clean test -Dscope=FlywayMigration"
             }
         }
+        stage ('Parallel tests') {
+            parallel {
+                stage ('Performance test') {
+                    steps {
+                       sh 'mvn clean test -Dscope=performance'
+                    }
+                }
+                stage ('Regression test') {
+                    steps {
+                       sh 'mvn clean test -Dscope=regression'
+                    }
+                }                
+                stage ('Integration test') {
+                    steps {
+                       sh 'mvn clean test -Dscope=integration'
+                    }
+                }                
+            }
+        }
     }
 }
