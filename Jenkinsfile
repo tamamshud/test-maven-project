@@ -18,34 +18,5 @@ pipeline {
             )
             }
         }
-        stage ('Execute Maven') {
-            steps {
-                sh "cd project && mvn clean install"
-            }
-        }
-        stage ('Database creation') {
-            steps {
-                sh "cd database && mvn clean test -Dscope=FlywayMigration"
-            }
-        }
-        stage ('Parallel tests') {
-            parallel {
-                stage ('Performance test') {
-                    steps {
-                       sh 'cd test && mvn clean test -Dscope=performance'
-                    }
-                }
-                stage ('Regression test') {
-                    steps {
-                       sh 'cd test && mvn clean test -Dscope=regression'
-                    }
-                }                
-                stage ('Integration test') {
-                    steps {
-                       sh 'cd test && mvn clean test -Dscope=integration'
-                    }
-                }                
-            }
-        }
     }
 }
