@@ -6,7 +6,7 @@ node ("master") {
     def directoryForCheckout = './project'
     def selectedBranchName = '*/master'
     def selectedRepository = 'https://github.com/tamamshud/test-maven-project'
-    def currentMavenCommand = 'mvn clean install'
+    def currentMavenCommand = 'cd project && mvn clean install'
 
             stageGitCheckout {
                 remoteDir = directoryForCheckout
