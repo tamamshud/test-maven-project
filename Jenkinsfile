@@ -11,7 +11,7 @@ pipeline {
         stage('Git Checkout') {
             steps {
             gitCheckout(
-            	remoteDir = direcotyForCheckout
+            	remoteDir = directoryForCheckout
                 branchName =  selectedBranchName
                 credentialsID = gitCredential
                 gitRepository = selectedRepository
