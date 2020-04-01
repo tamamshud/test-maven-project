@@ -12,7 +12,6 @@ pipeline {
             steps {
             gitCheckout(
             	remoteDir = directoryForCheckout
-                branchName =  selectedBranchName
                 credentialsID = gitCredential
                 gitRepository = selectedRepository
             )
