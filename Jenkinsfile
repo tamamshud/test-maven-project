@@ -8,8 +8,8 @@ node ("master") {
     def currentMavenCommand = 'cd project && mvn clean install'
     def currentDBCommand = 'cd database && mvn clean test -Dscope=FlywayMigration'
     def pCommand = 'cd test && mvn clean test -Dscope=performance'
-    def rCommand = 'cd test && mvn clean test -Dscope=regression'
-    def iCommand = 'cd test && mvn clean test -Dscope=integration'
+    def rCommand = 'mvn clean test -Dscope=regression'
+    def iCommand = 'mvn clean test -Dscope=integration'
 
             stageGitCheckout {
                 remoteDir = directoryForCheckout
