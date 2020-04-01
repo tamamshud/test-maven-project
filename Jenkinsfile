@@ -21,6 +21,5 @@ node ("master") {
 		jdkVersion   = selectedJdk
                 mavenVersion = selectedMaven
                 mavenCommand = currentMavenCommand
+	    }
 }
- 
-
