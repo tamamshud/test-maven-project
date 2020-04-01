@@ -6,6 +6,7 @@ node ("master") {
     def selectedBranchName = '*/master'
     def selectedRepository = 'https://github.com/tamamshud/test-maven-project'
     def currentMavenCommand = 'cd project && mvn clean install'
+    def currentDBCommand = 'cd database && mvn clean test -Dscope=FlywayMigration'
 
             stageGitCheckout {
                 remoteDir = directoryForCheckout
@@ -17,4 +18,9 @@ node ("master") {
 	    stageExecuteMaven {
                 mavenCommand = currentMavenCommand
 	    }
+
+             stageCreateDatabase {
+                dbCommand = currentDBCommand
+            }
+
 }
