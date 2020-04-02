@@ -12,7 +12,7 @@ node ("master") {
     def iCommand = 'mvn clean test -Dscope=integration'
     def pathToTest = 'cd /var/lib/jenkins/workspace/maven-project/test'
     def currentRecipient = 'dmytro_didenko1@epam.com'
-    def deployApp = 'mvn clean install'
+    def deployApp = 'cd /var/lib/jenkins/workspace/maven-project/project && mvn clean install'
             stageGitCheckout {
                 remoteDir = directoryForCheckout
                 branchName =  selectedBranchName
